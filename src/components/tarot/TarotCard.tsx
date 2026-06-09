@@ -19,7 +19,6 @@ export default function TarotCard({
   isReversed = false,
   position,
   onClick,
-  index = 0,
   isFlipped = false,
 }: TarotCardProps) {
   const cardWidth = 120;

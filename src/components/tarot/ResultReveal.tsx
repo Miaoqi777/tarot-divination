@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useDivinationStore } from '../../stores/divinationStore';
-import { generateInterpretation, getContextualMeaning } from '../../services/tarotService';
+import { getContextualMeaning } from '../../services/tarotService';
 import Button from '../ui/Button';
 import TarotCardComponent from './TarotCard';
 import { RotateCcw } from 'lucide-react';
@@ -19,7 +19,6 @@ export default function ResultReveal({ onNewReading }: ResultRevealProps) {
   if (!currentReading) return null;
 
   const { spreadType, cards } = currentReading;
-  const interpretations = generateInterpretation(cards);
 
   const handleFlipAll = () => {
     // Flip cards one by one

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ReactNode, ComponentPropsWithoutRef } from 'react';
+import type { ReactNode, ComponentPropsWithoutRef } from 'react';
 
 type MotionButtonProps = ComponentPropsWithoutRef<typeof motion.button>;
 

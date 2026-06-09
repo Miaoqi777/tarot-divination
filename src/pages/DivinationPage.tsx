@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useDivinationStore, useDivinationHistoryStore, hasReadToday } from '../stores/divinationStore';
 import { shuffleDeck, drawCards, createReading } from '../services/tarotService';
 import { SPREADS } from '../data/spreads';
-import { ALL_CARDS } from '../data/cards';
 import SpreadSelector from '../components/tarot/SpreadSelector';
 import ShuffleAnimation from '../components/tarot/ShuffleAnimation';
 import CardSpread from '../components/tarot/CardSpread';

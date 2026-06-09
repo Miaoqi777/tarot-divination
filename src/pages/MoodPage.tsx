@@ -20,7 +20,6 @@ export default function MoodPage() {
   const year = viewDate.getFullYear();
   const month = viewDate.getMonth();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
-  const firstDayOfWeek = new Date(year, month, 0).getDate();
   const startDay = new Date(year, month, 1).getDay();
 
   const calendarDays = useMemo(() => {

@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X } from 'lucide-react';
-import { ALL_CARDS, MAJOR_ARCANA } from '../data/cards';
+import { ALL_CARDS } from '../data/cards';
 import type { TarotCard } from '../types/tarot';
 import { useIsMobile } from '../hooks/useMediaQuery';
 
