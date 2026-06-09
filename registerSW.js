@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/tarot-divination/sw.js', { scope: '/tarot-divination/' })})}
