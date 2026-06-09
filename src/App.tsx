@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useState, useEffect, lazy, Suspense } from 'react';
 import SplashPage from './components/splash/SplashPage';
 import Sidebar from './components/layout/Sidebar';
@@ -59,7 +59,7 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<Navigate to="/divination" replace />} />
@@ -70,7 +70,7 @@ export default function App() {
             <Route path="/profile" element={<Suspense fallback={<PageLoader />}><ProfilePage /></Suspense>} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </QueryClientProvider>
   );
 }
