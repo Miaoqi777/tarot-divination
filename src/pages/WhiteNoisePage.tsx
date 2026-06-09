@@ -1,14 +1,13 @@
-import { useCallback, useRef } from 'react';
+import { useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Play, Pause, Volume2 } from 'lucide-react';
 import { useAudioStore } from '../stores/audioStore';
-import { playAudio, pauseAudio, resumeAudio, setAudioVolume, stopAudio, isAudioPlaying } from '../services/audioService';
+import { pauseAudio, resumeAudio, setAudioVolume, stopAudio } from '../services/audioService';
 import { AUDIO_TRACKS } from '../data/white-noise';
 import GlassCard from '../components/ui/GlassCard';
 
 export default function WhiteNoisePage() {
   const { currentTrackId, isPlaying, volume, setTrack, setPlaying, setVolume } = useAudioStore();
-  const howlRef = useRef<any>(null);
 
   const handlePlay = useCallback((trackId: string) => {
     if (currentTrackId === trackId && isPlaying) {

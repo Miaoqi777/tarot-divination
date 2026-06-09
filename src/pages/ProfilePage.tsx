@@ -8,7 +8,7 @@ import Button from '../components/ui/Button';
 const AVATARS = ['🌟', '🔮', '🌙', '⭐', '💫', '✨', '🦋', '🌸', '🎭', '🌺', '🍀', '💎'];
 
 export default function ProfilePage() {
-  const { isLoggedIn, user, login, register, logout, updateProfile, storedPassword } = useUserStore();
+  const { isLoggedIn, user, login, register, logout, updateProfile } = useUserStore();
   const [nickname, setNickname] = useState('');
   const [password, setPassword] = useState('');
   const [isRegistering, setIsRegistering] = useState(false);
