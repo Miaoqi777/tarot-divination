@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+/* ============================================================
+   NIJISANJI-Inspired Cosmic Rainbow Design System
+   ============================================================ */
+
+:root {
+  /* === Deep Space Background === */
+  --bg-deep: #060612;
+  --bg-space: #0C0C24;
+  --bg-navy: #141438;
+  --bg-card: #1A1A3E;
+
+  /* === Rainbow Accent (6-color spectrum) === */
+  --rainbow-red: #FF6B8A;
+  --rainbow-orange: #FF9E6B;
+  --rainbow-yellow: #FFE06B;
+  --rainbow-green: #6BFFB8;
+  --rainbow-blue: #6BCBFF;
+  --rainbow-purple: #B86BFF;
+  --rainbow-pink: #FF6BD6;
+
+  /* === Glow / Bloom Colors === */
+  --glow-pink: rgba(255, 107, 138, 0.45);
+  --glow-blue: rgba(107, 203, 255, 0.35);
+  --glow-purple: rgba(184, 107, 255, 0.45);
+  --glow-gold: rgba(255, 224, 107, 0.40);
+  --glow-green: rgba(107, 255, 184, 0.35);
+
+  /* === Rainbow Gradient === */
+  --rainbow-gradient: linear-gradient(135deg,
+    var(--rainbow-red) 0%, var(--rainbow-orange) 17%, var(--rainbow-yellow) 33%,
+    var(--rainbow-green) 50%, var(--rainbow-blue) 67%, var(--rainbow-purple) 83%, var(--rainbow-pink) 100%);
+  --rainbow-gradient-h: linear-gradient(180deg,
+    var(--rainbow-red), var(--rainbow-orange), var(--rainbow-yellow),
+    var(--rainbow-green), var(--rainbow-blue), var(--rainbow-purple));
+
+  /* === Glassmorphism (dark mode) === */
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-bg-hover: rgba(255, 255, 255, 0.08);
+  --glass-bg-strong: rgba(20, 20, 56, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.10);
+  --glass-border-strong: rgba(255, 255, 255, 0.20);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --glass-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 30px var(--glow-purple);
+  --glass-blur: blur(20px);
+
+  /* === Text (light on dark) === */
+  --text-primary: #EAE8F0;
+  --text-secondary: #A09BB8;
+  --text-muted: #6B6588;
+  --text-on-glass: #FFFFFF;
+
+  /* === Gold accent (kept for tarot) === */
+  --gold: #F0D078;
+  --gold-light: #FFEAA8;
+  --gold-dark: #C4A840;
+  --gold-glow: rgba(240, 208, 120, 0.4);
+
+  /* === Star colors === */
+  --star-dim: rgba(255, 255, 255, 0.3);
+  --star-bright: rgba(255, 255, 255, 0.9);
+  --star-blue: rgba(107, 203, 255, 0.7);
+  --star-gold: rgba(255, 224, 107, 0.7);
+  --star-pink: rgba(255, 107, 138, 0.6);
+
+  /* === Spacing / Radius === */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+}
+
+/* ===== Global Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-deep);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Glassmorphism Utilities (dark mode) ===== */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-strong {
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border-strong);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-hover:hover {
+  background: var(--glass-bg-hover);
+  box-shadow: var(--glass-shadow-hover);
+  border-color: var(--glass-border-strong);
+}
+
+/* ===== Rainbow Border Glow Variants ===== */
+.glass-rainbow {
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-rainbow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: var(--rainbow-gradient);
+  z-index: -1;
+  opacity: 0.6;
+}
+
+/* ===== Scrollbar (dark) ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== Keyframe Animations ===== */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(3deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px var(--glow-purple), 0 0 40px var(--glow-blue); }
+  50% { box-shadow: 0 0 40px var(--glow-pink), 0 0 80px var(--glow-purple), 0 0 120px var(--glow-blue); }
+}
+
+@keyframes glow-pulse-gold {
+  0%, 100% { box-shadow: 0 0 15px var(--gold-glow), 0 0 30px var(--gold-glow); }
+  50% { box-shadow: 0 0 30px var(--gold-glow), 0 0 60px var(--gold-glow), 0 0 90px var(--gold-glow); }
+}
+
+@keyframes kira-kira {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  30% { opacity: 1; transform: scale(1.2) rotate(120deg); }
+  60% { opacity: 0.6; transform: scale(0.8) rotate(240deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+@keyframes shooting-star {
+  0% { transform: translateX(0) translateY(0) rotate(-30deg); opacity: 0; }
+  5% { opacity: 1; }
+  15% { opacity: 0; transform: translateX(-400px) translateY(200px) rotate(-30deg); }
+  100% { opacity: 0; transform: translateX(-400px) translateY(200px) rotate(-30deg); }
+}
+
+@keyframes aurora-drift {
+  0% { background-position: 0% 50%, 100% 50%; }
+  50% { background-position: 100% 50%, 0% 50%; }
+  100% { background-position: 0% 50%, 100% 50%; }
+}
+
+@keyframes rainbow-shift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes curtainReveal {
+  0% { clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); }
+  40% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  60% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  100% { clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+}
+
+@keyframes orbit-reverse {
+  from { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+  to { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+}
+
+/* ===== Rainbow Text Utility ===== */
+.text-rainbow {
+  background: var(--rainbow-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow-shift 8s linear infinite;
+}
+
+/* ===== Glow Border Utility ===== */
+.glow-border {
+  box-shadow:
+    0 0 10px var(--glow-purple),
+    0 0 30px var(--glow-blue),
+    inset 0 0 10px rgba(184, 107, 255, 0.1);
+}
+
+.glow-border-pink {
+  box-shadow:
+    0 0 10px var(--glow-pink),
+    0 0 30px var(--glow-pink);
+}
+
+.glow-border-gold {
+  box-shadow:
+    0 0 10px var(--gold-glow),
+    0 0 30px var(--gold-glow);
+}
